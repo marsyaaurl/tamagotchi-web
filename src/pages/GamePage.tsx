@@ -29,7 +29,7 @@ const GamePage: React.FC<GamePageProps> = ({name, isSubmitted}) => {
     useEffect(() => {
         if(!isSubmitted) return;
         const interval = setInterval(() => {
-            setEnergy((prev) => Math.max(prev - 7, 0));
+            setEnergy((prev) => Math.max(prev - 10, 0));
         }, 2000);
 
         return () => clearInterval(interval);
@@ -56,22 +56,22 @@ const GamePage: React.FC<GamePageProps> = ({name, isSubmitted}) => {
     return (
         <>
             <div className="flex items-center justify-center min-h-screen w-screen">
-                <div className="items-center justify-start w-[400px] h-[650px] bg-white flex flex-col px-10 py-10 rounded-tl-[40px] rounded-br-[40px] shadow-md">
+                <div className="items-center justify-start w-[400px] h-[500px] bg-white flex flex-col px-10 py-10 rounded-tl-[40px] rounded-br-[40px] shadow-md">
                     <div>
-                        <img src={Background} className="w-[400px] h-auto relative" />
-                        <div className="absolute bg-transparent top-[13%] left-[42%] ">
+                        <img src={Background} className="w-[300px] h-auto relative" />
+                        <div className="absolute bg-transparent top-[28%] left-[20%] md:top-[13%] md:left-[40%] ">
                             <h3 className="bg-transparent text-white">{name}'s Mood</h3>
                             <div className="bg-gray-300 rounded-lg w-44 h-5 hover:scale-105 transition">
-                                <div className="bg-greenbutton rounded-lg h-5 stroke-black bg-transparent transition-all duration-200" style={{ width: `${(energy / 44) * 100}%`}}></div>
+                                <div className="rounded-lg h-5 stroke-black bg-greenbutton transition-all duration-200" style={{ width: `${(energy / 44) * 100}%`}}></div>
                             </div>
                         </div>
-                        <img src={moodImage[mood]} className="absolute w-44 items-center justify-center top-[18%] left-[45%] bg-transparent" />
-                        <div className="absolute bg-transparent bottom-28 left-[55%] -translate-x-1/2 flex flex-col items-center gap-5">
-                            <button onClick={() => setEnergy ((prev) => Math.min(prev + 3, 44))} className="w-14 h-14 rounded-full bg-yellowbutton text-black font-bold shadow-md hover:scale-105 transition">
+                        <img src={moodImage[mood]} className="absolute w-40 items-center justify-center top-[32%] left-[33%] md:top-[20%] md:left-[44%] bg-transparent" />
+                        <div className="absolute bg-transparent bottom-60 left-[70%] md:bottom-12 md:left-[56%] -translate-x-1/2 flex flex-col items-center">
+                            <button onClick={() => setEnergy ((prev) => Math.min(prev + 2, 44))} className="w-14 h-14 rounded-full bg-yellowbutton text-black font-bold shadow-md hover:scale-105 transition">
                                 FEED
                             </button>
                             <div className="flex gap-10 mt-2 bg-transparent">
-                                <button onClick={() => setEnergy ((prev) => Math.min(prev + 2, 44))} className="w-14 h-14 rounded-full bg-greenbutton text-black font-bold shadow-md hover:scale-105 transition">
+                                <button onClick={() => setEnergy ((prev) => Math.min(prev + 1, 44))} className="w-14 h-14 rounded-full bg-greenbutton text-black font-bold shadow-md hover:scale-105 transition">
                                 PLAY
                                 </button>
                                 <button onClick={() => setEnergy ((prev) => Math.max(prev - 44, 0))} className="w-14 h-14 rounded-full bg-redbutton text-black font-bold shadow-md hover:scale-105 transition">
