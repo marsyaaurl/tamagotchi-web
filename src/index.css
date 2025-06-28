@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  background-color: #7FB3F8;
+  font-family: Pixel Digivolve, sans-serif;
+}
